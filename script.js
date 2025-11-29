@@ -12,6 +12,8 @@
 // ===== GLOBAL VARIABLES =====
 let currentStage = 1;
 const maxStage = 4;
+let stage4Clips = [];
+let stage4Index = 0;
 
 // ===== HELPER FUNCTIONS =====
 function showStage(stageNumber) {
@@ -45,6 +47,29 @@ function loadStageContent(stageNumber) {
     }
 }
 
+function shuffleArray(array) {
+    // Fisher-Yates shuffle
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function renderStage4Clip() {
+    const clipContainer = document.getElementById("stage4ClipContainer");
+    const clipURL = stage4Clips[stage4Index];
+    const source = `https://www.redgifs.com/ifr/${clipURL}`;
+
+    clipContainer.innerHTML = `
+        <iframe
+            src="${source}"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+    `;
+}
+
 // ===== MAIN CONTENT =====
 function loadStage1() {
     const container = document.getElementById("stage1");
@@ -58,8 +83,6 @@ function loadStage1() {
 
         <p>"You're the perfect partner" - Gentle</p>
         <iframe
-            width="720"
-            height="405"
             src="https://www.redgifs.com/ifr/bruisedsnivelingcaiman"
             frameborder="0"
             allowfullscreen
@@ -67,8 +90,6 @@ function loadStage1() {
 
         <p>I thought this clip from Shimoneta fit us pretty well</p>
         <iframe
-            width="720"
-            height="405"
             src="https://www.redgifs.com/ifr/bruisedsnivelingcaiman"
             frameborder="0"
             allowfullscreen
@@ -84,8 +105,6 @@ function loadStage2() {
         <p>You know I HAD to include this, right?</p>
         <p>Forever feeling blessed that I decided to post this on that specific day.</p>
         <iframe
-            width="720"
-            height="405"
             src="https://www.redgifs.com/ifr/murkytemptingbichonfrise"
             frameborder="0"
             allowfullscreen
@@ -106,11 +125,11 @@ function loadStage3() {
             href="https://www.reddit.com/user/HeartThrobGal/comments/1my1g84/fanservice_review_1_bathtub_scene_harem_in_the/"
         >Read Review ♥</a>
         <br/><br/>
-        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/quarterlyfalselacewing" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.redgifs.com/ifr/quarterlyfalselacewing" frameborder="0" allowfullscreen></iframe>
         <br/>
-        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/pureslategraybobwhite" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.redgifs.com/ifr/pureslategraybobwhite" frameborder="0" allowfullscreen></iframe>
         <br/>
-        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/bogusharshauklet" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.redgifs.com/ifr/bogusharshauklet" frameborder="0" allowfullscreen></iframe>
         <br/><br/>
 
         <h3>Rui and Natsuo's First Time - Domestic Girlfriend (Episode 1)</h3>
@@ -119,9 +138,9 @@ function loadStage3() {
             href="https://www.reddit.com/user/HeartThrobGal/comments/1mzgxy0/fanservice_review_2_rui_and_natsuos_first_time/"
         >Read Review ♥</a>
         <br/><br/>
-        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/quaintmindlesswhitetippedreefshark" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.redgifs.com/ifr/quaintmindlesswhitetippedreefshark" frameborder="0" allowfullscreen></iframe>
         <br/>
-        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/humiliatingfittingbluemorphobutterfly" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.redgifs.com/ifr/humiliatingfittingbluemorphobutterfly" frameborder="0" allowfullscreen></iframe>
         <br/><br/>
 
         <h3>Mio and Basara's Syrup-y Playtime - Testament of Sister New Devil (Episode 6)</h3>
@@ -130,9 +149,9 @@ function loadStage3() {
             href="https://www.reddit.com/user/HeartThrobGal/comments/1mztryl/fanservice_review_3_mio_and_basaras_syrupy/"
         >Read Review ♥</a>
         <br/><br/>
-        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/chocolatethirdagama" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.redgifs.com/ifr/chocolatethirdagama" frameborder="0" allowfullscreen></iframe>
         <br/>
-        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/meagergrumpykestrel" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.redgifs.com/ifr/meagergrumpykestrel" frameborder="0" allowfullscreen></iframe>
         <br/><br/>
 
         <h3>Lady Lady's Session - Valkyrie Drive: Mermaid (Special Episode 5)</h3>
@@ -150,7 +169,7 @@ function loadStage3() {
             href="https://www.reddit.com/user/HeartThrobGal/comments/1nmjb3k/fanservice_review_5_a_loving_rescue_nukitashi_the/"
         >Read Review ♥</a>
         <br/><br/>
-        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/nastyorganicjunebug" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.redgifs.com/ifr/nastyorganicjunebug" frameborder="0" allowfullscreen></iframe>
     `;
 }
 
@@ -158,9 +177,20 @@ function loadStage4() {
     const container = document.getElementById("stage4");
 
     container.innerHTML = `
-        <h2>Stage 4 Content</h2>
-        <p>This is where stage 4 content will go.</p>
+        <h2>✨ Clip Roulette ✨</h2>
+        <p>Thanks for always being such a good girl for me <3</p>
+        <p>Now enjoy some random clips from some of our favorites :]</p>
+        <br/>
+        <div id="stage4ClipContainer"></div>
+        <button id="nextClipBtn">Next Clip</button>
     `;
+
+    renderStage4Clip();
+
+    document.getElementById("nextClipBtn").addEventListener("click", () => {
+        stage4Index = (stage4Index + 1) % stage4Clips.length;
+        renderStage4Clip();
+    });
 } 
 
 // ===== CONTROLS =====
@@ -175,4 +205,18 @@ document.getElementById("prevStage").addEventListener("click", () => {
 });
 
 // ===== INITIALIZE =====
+window.onload = async () => {
+    try {
+        const response = await fetch('clips.json');
+        const data = await response.json();
+        stage4Clips = shuffleArray(data.clips);
+        stage4Index = 0;
+        console.log("Stage 4 clips preloaded!");
+    } catch (err) {
+        console.error("Failed to preload stage 4 clips:", err);
+    }
+
+    showStage(currentStage);
+};
+
 showStage(currentStage);
