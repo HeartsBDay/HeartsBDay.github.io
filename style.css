@@ -1,0 +1,106 @@
+/* ===== GENERAL LOOK ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #4a0e26;
+    background: linear-gradient(135deg, #ffe6f2, #ffd1dc, #ffe6f2);
+    background-size: 200% 200%;
+    animation: gradientShift 12s ease infinite;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Soft floating background gradient */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== HEADERS ===== */
+h1 {
+    font-size: 3rem;
+    margin-top: 40px;
+    color: #d60f6f;
+    text-shadow: 0 0 12px #ff99bb, 0 0 24px #ffb6d3;
+    animation: heartGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes heartGlow {
+    0% { text-shadow: 0 0 12px #ff99bb; }
+    100% { text-shadow: 0 0 32px #ff5fa2; }
+}
+
+h2 {
+    margin-top: 40px;
+    font-size: 2rem;
+    color: #b30057;
+}
+
+/* ===== TEXT ===== */
+p {
+    width: 70%;
+    margin: 10px auto;
+    line-height: 1.6;
+    font-size: 1.2rem;
+}
+
+/* ===== STAGES ===== */
+.stage {
+    display: none;
+    padding-bottom: 120px; /* space for controls */
+}
+
+.stage:not(.hidden) {
+    display: block;
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== IFRAMES ===== */
+iframe {
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.35);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+iframe:hover {
+    transform: scale(1.02);
+}
+
+/* ===== CONTROLS ===== */
+#controls {
+    position: fixed;
+    bottom: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+button {
+    background: #ff5fa2;
+    border: none;
+    color: white;
+    padding: 12px 22px;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 6px 18px rgba(255, 105, 180, 0.4);
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 12px 25px rgba(255, 105, 180, 0.6);
+}
+
+button:active {
+    transform: translateY(0px);
+}
