@@ -38,6 +38,15 @@ h2 {
     color: #b30057;
 }
 
+h3 {
+    font-size: 1.5rem;
+    color: #d60f6f;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 8px #ffb6d3;
+    font-weight: 600;
+}
+
 /* ===== TEXT ===== */
 p {
     width: 70%;
@@ -104,3 +113,22 @@ button:hover {
 button:active {
     transform: translateY(0px);
 }
+
+.review-link-button {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 16px;
+    background: #ffb6d3;
+    color: #b30057;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.35);
+    transition: 0.2s ease;
+}
+
+.review-link-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.45);
+}
+

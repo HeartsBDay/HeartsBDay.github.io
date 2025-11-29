@@ -17,6 +17,7 @@ const maxStage = 4;
 function showStage(stageNumber) {
     // hide every stage
     document.querySelectorAll('.stage').forEach(stage => {
+        stage.innerHTML = ''; // mutes previous stage content
         stage.classList.add('hidden');
     });
 
@@ -64,7 +65,7 @@ function loadStage1() {
             allowfullscreen
         ></iframe>
 
-        <p>I thought this clip fit us pretty well</p>
+        <p>I thought this clip from Shimoneta fit us pretty well</p>
         <iframe
             width="720"
             height="405"
@@ -79,8 +80,16 @@ function loadStage2() {
     const container = document.getElementById("stage2");
 
     container.innerHTML = `
-        <h2>Stage 2 Content</h2>
-        <p>This is where stage 2 content will go.</p>
+        <h2>What brought us together ❤️</h2>
+        <p>You know I HAD to include this, right?</p>
+        <p>Forever feeling blessed that I decided to post this on that specific day.</p>
+        <iframe
+            width="720"
+            height="405"
+            src="https://www.redgifs.com/ifr/murkytemptingbichonfrise"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
     `;
 }
 
@@ -88,8 +97,60 @@ function loadStage3() {
     const container = document.getElementById("stage3");
 
     container.innerHTML = `
-        <h2>Stage 3 Content</h2>
-        <p>This is where stage 3 content will go.</p>
+        <h2>FANSERVICE REVIEWS</h2>
+        <p>I thought it would be fun to look back at all the reviews you've done so far.</p>
+        <p>A reminder of the joy you spread to everyone :]</p>
+
+        <h3>Bathtub Scene - Harem in the Labyrinth of Another World (Episode 10)</h3>
+        <a  class="review-link-button"
+            href="https://www.reddit.com/user/HeartThrobGal/comments/1my1g84/fanservice_review_1_bathtub_scene_harem_in_the/"
+        >Read Review ♥</a>
+        <br/><br/>
+        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/quarterlyfalselacewing" frameborder="0" allowfullscreen></iframe>
+        <br/>
+        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/pureslategraybobwhite" frameborder="0" allowfullscreen></iframe>
+        <br/>
+        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/bogusharshauklet" frameborder="0" allowfullscreen></iframe>
+        <br/><br/>
+
+        <h3>Rui and Natsuo's First Time - Domestic Girlfriend (Episode 1)</h3>
+        <a  
+            class="review-link-button"
+            href="https://www.reddit.com/user/HeartThrobGal/comments/1mzgxy0/fanservice_review_2_rui_and_natsuos_first_time/"
+        >Read Review ♥</a>
+        <br/><br/>
+        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/quaintmindlesswhitetippedreefshark" frameborder="0" allowfullscreen></iframe>
+        <br/>
+        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/humiliatingfittingbluemorphobutterfly" frameborder="0" allowfullscreen></iframe>
+        <br/><br/>
+
+        <h3>Mio and Basara's Syrup-y Playtime - Testament of Sister New Devil (Episode 6)</h3>
+        <a 
+            class="review-link-button"
+            href="https://www.reddit.com/user/HeartThrobGal/comments/1mztryl/fanservice_review_3_mio_and_basaras_syrupy/"
+        >Read Review ♥</a>
+        <br/><br/>
+        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/chocolatethirdagama" frameborder="0" allowfullscreen></iframe>
+        <br/>
+        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/meagergrumpykestrel" frameborder="0" allowfullscreen></iframe>
+        <br/><br/>
+
+        <h3>Lady Lady's Session - Valkyrie Drive: Mermaid (Special Episode 5)</h3>
+        <a 
+            class="review-link-button"
+            href="https://www.reddit.com/user/HeartThrobGal/comments/1n8ux17/fanservice_review_4_lady_ladys_session_valkyrie/"
+        >Read Review ♥</a>
+        <br/><br/>
+        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/kindheartedfavorablezenaida" frameborder="0" allowfullscreen></iframe>
+        <br/><br/>
+
+        <h3>A Loving Rescue - Nukitashi: The Animation (Episode 10)</h3>
+        <a 
+            class="review-link-button"
+            href="https://www.reddit.com/user/HeartThrobGal/comments/1nmjb3k/fanservice_review_5_a_loving_rescue_nukitashi_the/"
+        >Read Review ♥</a>
+        <br/><br/>
+        <iframe width="720" height="405" src="https://www.redgifs.com/ifr/nastyorganicjunebug" frameborder="0" allowfullscreen></iframe>
     `;
 }
 
@@ -104,12 +165,12 @@ function loadStage4() {
 
 // ===== CONTROLS =====
 document.getElementById("nextStage").addEventListener("click", () => {
-    if (currentStage < maxStage) currentStage++;
+    currentStage = currentStage % maxStage + 1;
     showStage(currentStage);
 });
 
 document.getElementById("prevStage").addEventListener("click", () => {
-    if (currentStage > 1) currentStage--;
+    currentStage = (currentStage - 2 + maxStage) % maxStage + 1;
     showStage(currentStage);
 });
 
