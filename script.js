@@ -88,7 +88,7 @@ function loadStage1() {
 
         <p>"You're the perfect partner" - Gentle</p>
         <iframe
-            src="https://www.redgifs.com/ifr/bruisedsnivelingcaiman"
+            src="https://www.redgifs.com/ifr/suddenfoolhardycanary"
             frameborder="0"
             allowfullscreen
         ></iframe>
@@ -108,7 +108,7 @@ function loadStage2() {
     container.innerHTML = `
         <h2>What brought us together ❤️</h2>
         <p>You know I HAD to include this, right?</p>
-        <p>Forever feeling blessed that I decided to post this on that specific day.</p>
+        <p>Forever feeling blessed that I decided to post this gif that day.</p>
         <iframe
             src="https://www.redgifs.com/ifr/murkytemptingbichonfrise"
             frameborder="0"
@@ -183,7 +183,7 @@ function loadStage4() {
 
     container.innerHTML = `
         <h2>✨ Clip Roulette ✨</h2>
-        <p>Thanks for always being such a good girl for me <3</p>
+        <p>From your Gentle - thanks for always being such a good girl for me <3</p>
         <p>Now enjoy some random clips from some of our favorites :]</p>
         <br/>
         <div id="stage4ClipContainer"></div>
