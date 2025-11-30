@@ -1,10 +1,33 @@
-/* ===== GENERAL LOOK (mobile firs) ===== */
+/* ============================================
+   CSS VARIABLES
+============================================ */
+:root {
+    --pink: #ff5fa2;
+    --pink-light: #ffb6d3;
+    --pink-lighter: #ff99bb;
+    --pink-shadow: rgba(255, 105, 180, 0.35);
+    --pink-shadow-strong: rgba(255, 105, 180, 0.6);
+
+    --rose: #d60f6f;
+    --rose-dark: #b30057;
+
+    --text-color: #4a0e26;
+
+    --bg-grad-1: #ffe6f2;
+    --bg-grad-2: #ffd1dc;
+
+    --shadow-soft: 0 10px 25px var(--pink-shadow);
+    --shadow-button: 0px 6px 18px var(--pink-shadow);
+    --shadow-button-hover: 0px 12px 25px var(--pink-shadow-strong);
+}
+
+/* ===== GENERAL LOOK (mobile first) ===== */
 body {
     margin: 0;
     padding: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    color: #4a0e26;
-    background: linear-gradient(135deg, #ffe6f2, #ffd1dc, #ffe6f2);
+    color: var(--text-color);
+    background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-1));
     background-size: 200% 200%;
     animation: gradientShift 12s ease infinite;
     overflow-x: hidden;
@@ -22,28 +45,28 @@ body {
 h1 {
     font-size: 2rem;
     margin-top: 20px;
-    color: #d60f6f;
-    text-shadow: 0 0 12px #ff99bb, 0 0 24px #ffb6d3;
+    color: var(--rose);
+    text-shadow: 0 0 12px var(--pink-lighter), 0 0 24px var(--pink-light);
     animation: heartGlow 2.5s ease-in-out infinite alternate;
 }
 
 @keyframes heartGlow {
-    0% { text-shadow: 0 0 12px #ff99bb; }
-    100% { text-shadow: 0 0 32px #ff5fa2; }
+    0% { text-shadow: 0 0 12px var(--pink-lighter); }
+    100% { text-shadow: 0 0 32px var(--pink); }
 }
 
 h2 {
     font-size: 1.4rem;
     margin-top: 25px;
-    color: #b30057;
+    color: var(--rose-dark);
 }
 
 h3 {
     font-size: 1.2rem;
     margin-top: 25px;
-    color: #d60f6f;
+    color: var(--rose);
     margin-bottom: 5px;
-    text-shadow: 0 0 8px #ffb6d3;
+    text-shadow: 0 0 8px var(--pink-light);
     font-weight: 600;
 }
 
@@ -59,9 +82,17 @@ p {
 .stage {
     display: none;
     padding-bottom: 120px; /* space for controls */
+    will-change: opacity, transform;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
 }
 
 .stage:not(.hidden) {
+    opacity: 1;
     display: block;
     animation: fadeIn 0.8s ease;
 }
@@ -74,12 +105,11 @@ p {
 /* ===== IFRAMES ===== */
 iframe {
     width: 92vw;
-    height: 52vw;
-    max-height: 400px;
+    aspect-ratio: 16 / 9;
     border-radius: 10px;
     margin-top: 15px;
     margin-bottom: 25px;
-    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.35);
+    box-shadow: var(--shadow-soft);
     transition: transform 0.3s ease;
 }
 
@@ -98,20 +128,20 @@ iframe:hover {
 }
 
 button {
-    background: #ff5fa2;
+    background: var(--pink);
     border: none;
     color: white;
     font-size: 1.1rem;
     padding: 10px 18px;
     border-radius: 40px;
     cursor: pointer;
-    box-shadow: 0px 6px 18px rgba(255, 105, 180, 0.4);
+    box-shadow: var(--shadow-button);
     transition: transform 0.2s, box-shadow 0.3s;
 }
 
 button:hover {
     transform: translateY(-4px);
-    box-shadow: 0px 12px 25px rgba(255, 105, 180, 0.6);
+    box-shadow: var(--shadow-button-hover);
 }
 
 button:active {
@@ -122,18 +152,18 @@ button:active {
     display: inline-block;
     margin-top: 8px;
     padding: 8px 16px;
-    background: #ffb6d3;
-    color: #b30057;
+    background: var(--pink-light);
+    color: var(--rose-dark);
     border-radius: 20px;
     font-weight: 600;
     text-decoration: none;
-    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.35);
+    box-shadow: 0 4px 12px var(--pink-shadow);
     transition: 0.2s ease;
 }
 
 .review-link-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.45);
+    box-shadow: 0 8px 20px var(--pink-shadow-strong);
 }
 
 /* ===== TABLET SCALING ===== */
@@ -146,8 +176,6 @@ button:active {
 
     iframe {
         width: 80vw;
-        height: 45vw;
-        max-height: 450px;
     }
 
     button { font-size: 1.3rem; padding: 12px 20px; }
@@ -163,9 +191,7 @@ button:active {
     p { width: 70%; font-size: 1.2rem; }
 
     iframe {
-        width: 60vw;
-        height: 34vw;
-        max-height: 560px;
+        width: 45vw;
     }
 
     button { font-size: 1.5rem; padding: 12px 22px; }

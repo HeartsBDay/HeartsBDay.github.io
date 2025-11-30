@@ -15,35 +15,40 @@ const maxStage = 4;
 let stage4Clips = [];
 let stage4Index = 0;
 
+// ===== DOM CACHE =====
+const stages = [...document.querySelectorAll('.stage')];
+
+const stageContainerMap = {
+    1: document.getElementById("stage1"),
+    2: document.getElementById("stage2"),
+    3: document.getElementById("stage3"),
+    4: document.getElementById("stage4"),
+};
+
+const nextStageBtn = document.getElementById("nextStage");
+const prevStageBtn = document.getElementById("prevStage");
+
+
 // ===== HELPER FUNCTIONS =====
 function showStage(stageNumber) {
     // hide every stage
-    document.querySelectorAll('.stage').forEach(stage => {
-        stage.innerHTML = ''; // mutes previous stage content
+    stages.forEach(stage => {
+        stage.innerHTML = ''; 
         stage.classList.add('hidden');
     });
 
     // show selected stage
-    const stageId = `stage${stageNumber}`;
-    document.getElementById(stageId).classList.remove('hidden');
+    stageContainerMap[stageNumber].classList.remove('hidden');
     loadStageContent(stageNumber);
 }
 
 function loadStageContent(stageNumber) {
     // Load content based on stage number
     switch(stageNumber) {
-        case 1:
-            loadStage1();
-            break;
-        case 2:
-            loadStage2();
-            break;
-        case 3:
-            loadStage3();
-            break;
-        case 4:
-            loadStage4();
-            break;
+        case 1: loadStage1(); break;
+        case 2: loadStage2(); break;
+        case 3: loadStage3(); break;
+        case 4: loadStage4(); break;
     }
 }
 
@@ -72,7 +77,7 @@ function renderStage4Clip() {
 
 // ===== MAIN CONTENT =====
 function loadStage1() {
-    const container = document.getElementById("stage1");
+    const container = stageContainerMap[1];
 
     container.innerHTML = `
         <h1>Happy Birthday, Heart! 🎉</h1>
@@ -98,7 +103,7 @@ function loadStage1() {
 }
 
 function loadStage2() {
-    const container = document.getElementById("stage2");
+    const container = stageContainerMap[2];
 
     container.innerHTML = `
         <h2>What brought us together ❤️</h2>
@@ -113,7 +118,7 @@ function loadStage2() {
 }
 
 function loadStage3() {
-    const container = document.getElementById("stage3");
+    const container = stageContainerMap[3];
 
     container.innerHTML = `
         <h2>FANSERVICE REVIEWS</h2>
@@ -174,7 +179,7 @@ function loadStage3() {
 }
 
 function loadStage4() {
-    const container = document.getElementById("stage4");
+    const container = stageContainerMap[4];
 
     container.innerHTML = `
         <h2>✨ Clip Roulette ✨</h2>
@@ -185,21 +190,28 @@ function loadStage4() {
         <button id="nextClipBtn">Next Clip</button>
     `;
 
+    // If no clips loaded, show error message
+    const clipContainer = document.getElementById("stage4ClipContainer");
+    if (!stage4Clips.length) {
+        clipContainer.innerHTML = "<p>Could not load clips 😭</p>";
+        return;
+    }
+
     renderStage4Clip();
 
-    document.getElementById("nextClipBtn").addEventListener("click", () => {
+    document.getElementById("nextClipBtn").onclick = () => {
         stage4Index = (stage4Index + 1) % stage4Clips.length;
         renderStage4Clip();
-    });
+    };
 } 
 
 // ===== CONTROLS =====
-document.getElementById("nextStage").addEventListener("click", () => {
+nextStageBtn.addEventListener("click", () => {
     currentStage = currentStage % maxStage + 1;
     showStage(currentStage);
 });
 
-document.getElementById("prevStage").addEventListener("click", () => {
+prevStageBtn.addEventListener("click", () => {
     currentStage = (currentStage - 2 + maxStage) % maxStage + 1;
     showStage(currentStage);
 });
@@ -218,5 +230,3 @@ window.onload = async () => {
 
     showStage(currentStage);
 };
-
-showStage(currentStage);
