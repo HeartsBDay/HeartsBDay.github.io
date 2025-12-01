@@ -81,7 +81,7 @@ function loadStage1() {
 
     container.innerHTML = `
         <h1>Happy Birthday, Heart! 🎉</h1>
-        <p>I love you so much baby! Wishing you the best on your special day. You deserve the world!</p>
+        <p>To my own La Brava, my partner in crime, I love you so much baby! Wishing you the best on your special day. You deserve the world!</p>
         <p>Use the arrows below to navigate.</p>
 
         <h2>Us 💖</h2>
@@ -93,7 +93,7 @@ function loadStage1() {
             allowfullscreen
         ></iframe>
 
-        <p>I thought this clip from Shimoneta fit us pretty well</p>
+        <p>I thought this clip from Shimoneta fit us perfectly</p>
         <iframe
             src="https://www.redgifs.com/ifr/bruisedsnivelingcaiman"
             frameborder="0"
@@ -126,8 +126,10 @@ function loadStage3() {
         <p>A reminder of the joy you spread to everyone :]</p>
 
         <h3>Bathtub Scene - Harem in the Labyrinth of Another World (Episode 10)</h3>
-        <a  class="review-link-button"
+        <a  
+            class="review-link-button"
             href="https://www.reddit.com/user/HeartThrobGal/comments/1my1g84/fanservice_review_1_bathtub_scene_harem_in_the/"
+            target="_blank"
         >Read Review ♥</a>
         <br/><br/>
         <iframe src="https://www.redgifs.com/ifr/quarterlyfalselacewing" frameborder="0" allowfullscreen></iframe>
@@ -141,6 +143,7 @@ function loadStage3() {
         <a  
             class="review-link-button"
             href="https://www.reddit.com/user/HeartThrobGal/comments/1mzgxy0/fanservice_review_2_rui_and_natsuos_first_time/"
+            target="_blank"
         >Read Review ♥</a>
         <br/><br/>
         <iframe src="https://www.redgifs.com/ifr/quaintmindlesswhitetippedreefshark" frameborder="0" allowfullscreen></iframe>
@@ -152,6 +155,7 @@ function loadStage3() {
         <a 
             class="review-link-button"
             href="https://www.reddit.com/user/HeartThrobGal/comments/1mztryl/fanservice_review_3_mio_and_basaras_syrupy/"
+            target="_blank"
         >Read Review ♥</a>
         <br/><br/>
         <iframe src="https://www.redgifs.com/ifr/chocolatethirdagama" frameborder="0" allowfullscreen></iframe>
@@ -163,6 +167,7 @@ function loadStage3() {
         <a 
             class="review-link-button"
             href="https://www.reddit.com/user/HeartThrobGal/comments/1n8ux17/fanservice_review_4_lady_ladys_session_valkyrie/"
+            target="_blank"
         >Read Review ♥</a>
         <br/><br/>
         <iframe width="720" height="405" src="https://www.redgifs.com/ifr/kindheartedfavorablezenaida" frameborder="0" allowfullscreen></iframe>
@@ -172,6 +177,7 @@ function loadStage3() {
         <a 
             class="review-link-button"
             href="https://www.reddit.com/user/HeartThrobGal/comments/1nmjb3k/fanservice_review_5_a_loving_rescue_nukitashi_the/"
+            target="_blank"
         >Read Review ♥</a>
         <br/><br/>
         <iframe src="https://www.redgifs.com/ifr/nastyorganicjunebug" frameborder="0" allowfullscreen></iframe>
@@ -183,7 +189,7 @@ function loadStage4() {
 
     container.innerHTML = `
         <h2>✨ Clip Roulette ✨</h2>
-        <p>From your Gentle - thanks for always being such a good girl for me <3</p>
+        <p>From your Gentle - thank you for always being my perfect partner and for always being such a good girl for me <3</p>
         <p>Now enjoy some random clips from some of our favorites :]</p>
         <br/>
         <div id="stage4ClipContainer"></div>
