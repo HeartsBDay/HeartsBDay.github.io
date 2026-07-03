@@ -82,8 +82,6 @@ function loadStage1() {
     container.innerHTML = `
         <h1>Happy Birthday, Heart! 🎉</h1>
         <p>To my own La Brava, my partner in crime, I love you so much baby! Wishing you the best on your special day. You deserve the world!</p>
-        <p>HANNA PLEASE COME TALK TO ME WE CAN FIGURE THIS OUT TOGETHER YOU HAVE A PLACCE PLEASEEE</p>
-        <p>Come back to me Hanna... we can figure this out... we always do... please</p>
         <p>Use the arrows below to navigate.</p>
 
         <h2>Us 💖</h2>
